@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGA — Minhas Turmas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link rel="stylesheet" href="menu.style.css" />
+</head>
+<body>
+
+  <!-- ===================== MENU LATERAL ===================== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">F</div>
+      <div class="brand-text">
+        <strong>SGA</strong>
+        <span>Docente</span>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <a href="#turmas" class="menu-item active">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <span>Minhas turmas</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-regular fa-user"></i>
+        <span>Meu perfil</span>
+      </a>
+      <a href="#" class="menu-item">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Sair</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="avatar avatar-sm">AM</div>
+      <div class="user-info">
+        <strong>Prof. Ana Menezes</strong>
+        <span>Professor(a)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+  <main class="main">
+
+    <!-- Cabeçalho -->
+    <header class="topbar">
+      <div>
+        <h1>Minhas turmas</h1>
+        <p class="subtitle">Selecione uma turma para ver o diário de notas</p>
+      </div>
+      <div class="avatar avatar-lg">AM</div>
+    </header>
+
+    <!-- ============================================================
+         BLOCO 1 — GRADE DE TURMAS (tela inicial)
+         O id="turmas" serve de "âncora padrão" para o :target.
+         ============================================================ -->
+    <section id="turmas" class="view view-turmas">
+
+      <div class="cards">
+
+        <article class="card card-blue">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="card-icon">E</div>
+            <h3>Engenharia de Software</h3>
+            <p class="card-code">ADS 2026.1</p>
+            <p class="card-students">38 alunos</p>
+            <a href="#turma-eng" class="card-link">
+              Abrir turma <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card-green">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="card-icon">B</div>
+            <h3>Banco de Dados II</h3>
+            <p class="card-code">ADS 2026.1</p>
+            <p class="card-students">31 alunos</p>
+            <a href="#turma-bd" class="card-link">
+              Abrir turma <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card-amber">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="card-icon">P</div>
+            <h3>Programação Web</h3>
+            <p class="card-code">ADS 2026.1</p>
+            <p class="card-students">42 alunos</p>
+            <a href="#turma-web" class="card-link">
+              Abrir turma <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card-red">
+          <div class="card-bar"></div>
+          <div class="card-body">
+            <div class="card-icon">E</div>
+            <h3>Estrutura de Dados</h3>
+            <p class="card-code">ADS 2025.2</p>
+            <p class="card-students">29 alunos</p>
+            <a href="#turma-ed" class="card-link">
+              Abrir turma <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <section class="tip">
+        <h4>Dica</h4>
+        <p>
+          Clique em um cartão de turma para abrir, no corpo desta mesma página,
+          a tabela de alunos e notas daquela turma.
+        </p>
+      </section>
+    </section>
+
+    <!-- ============================================================
+         BLOCO 2 — TABELAS DE ALUNOS (uma por turma)
+         Só uma aparece por vez, conforme o :target da URL.
+         ============================================================ -->
+
+    <!-- Turma: Engenharia de Software -->
+    <section id="turma-eng" class="view view-turma">
+      <a href="#turmas" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para minhas turmas
+      </a>
+
+      <div class="turma-header">
+        <h2>Engenharia de Software</h2>
+        <p class="subtitle">ADS 2026.1 • 38 alunos matriculados</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="grade">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome do aluno</th>
+              <th>P1</th>
+              <th>P2</th>
+              <th>Proj. F1</th>
+              <th>Proj. F2</th>
+              <th>Média</th>
+              <th>Status</th>
+              <th>Final</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20231D4521</td>
+              <td class="nome">Beatriz Andrade Souza</td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td class="media">8,1</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D4522</td>
+              <td class="nome">Carlos Eduardo Lima</td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="5,0" /></td>
+              <td class="media">5,4</td>
+              <td><span class="badge reprovado">Reprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D4523</td>
+              <td class="nome">Daniele Ferreira Costa</td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="7,5" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td class="media">6,4</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D4524</td>
+              <td class="nome">Eduardo Nascimento</td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td class="media">8,9</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D4525</td>
+              <td class="nome">Fernanda Melo Rocha</td>
+              <td><input type="text" value="4,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="4,5" /></td>
+              <td class="media">4,6</td>
+              <td><span class="badge reprovado">Reprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D4526</td>
+              <td class="nome">Gustavo Pereira Dias</td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td class="media">5,7</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>6,5</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span>Mostrando 1–6 de 38 alunos</span>
+        <div class="pages">
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn">…</a>
+          <a href="#" class="page-btn">7</a>
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Turma: Banco de Dados II -->
+    <section id="turma-bd" class="view view-turma">
+      <a href="#turmas" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para minhas turmas
+      </a>
+
+      <div class="turma-header">
+        <h2>Banco de Dados II</h2>
+        <p class="subtitle">ADS 2026.1 • 31 alunos matriculados</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="grade">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome do aluno</th>
+              <th>P1</th>
+              <th>P2</th>
+              <th>Proj. F1</th>
+              <th>Proj. F2</th>
+              <th>Média</th>
+              <th>Status</th>
+              <th>Final</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20231D5101</td>
+              <td class="nome">Ana Clara Ribeiro</td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="9,5" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td class="media">9,0</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D5102</td>
+              <td class="nome">Bruno Tavares Alves</td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td class="media">6,5</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D5103</td>
+              <td class="nome">Camila Nogueira Pinto</td>
+              <td><input type="text" value="4,5" /></td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="3,5" /></td>
+              <td><input type="text" value="4,0" /></td>
+              <td class="media">4,2</td>
+              <td><span class="badge reprovado">Reprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D5104</td>
+              <td class="nome">Diego Farias Moura</td>
+              <td><input type="text" value="7,5" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td><input type="text" value="7,5" /></td>
+              <td class="media">7,8</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D5105</td>
+              <td class="nome">Elisa Martins Barros</td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td class="media">5,8</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>7,0</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span>Mostrando 1–5 de 31 alunos</span>
+        <div class="pages">
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn">…</a>
+          <a href="#" class="page-btn">6</a>
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Turma: Programação Web -->
+    <section id="turma-web" class="view view-turma">
+      <a href="#turmas" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para minhas turmas
+      </a>
+
+      <div class="turma-header">
+        <h2>Programação Web</h2>
+        <p class="subtitle">ADS 2026.1 • 42 alunos matriculados</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="grade">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome do aluno</th>
+              <th>P1</th>
+              <th>P2</th>
+              <th>Proj. F1</th>
+              <th>Proj. F2</th>
+              <th>Média</th>
+              <th>Status</th>
+              <th>Final</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20231D6201</td>
+              <td class="nome">Felipe Andrade Correia</td>
+              <td><input type="text" value="8,0" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td class="media">8,6</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D6202</td>
+              <td class="nome">Gabriela Souza Freitas</td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td class="media">6,1</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D6203</td>
+              <td class="nome">Henrique Lopes Vieira</td>
+              <td><input type="text" value="4,0" /></td>
+              <td><input type="text" value="4,5" /></td>
+              <td><input type="text" value="3,0" /></td>
+              <td><input type="text" value="3,5" /></td>
+              <td class="media">3,7</td>
+              <td><span class="badge reprovado">Reprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D6204</td>
+              <td class="nome">Isabela Freitas Gomes</td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="7,5" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td class="media">7,9</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D6205</td>
+              <td class="nome">João Pedro Albuquerque</td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td class="media">5,7</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>6,0</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D6206</td>
+              <td class="nome">Larissa Campos Duarte</td>
+              <td><input type="text" value="6,5" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td class="media">6,6</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span>Mostrando 1–6 de 42 alunos</span>
+        <div class="pages">
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn">…</a>
+          <a href="#" class="page-btn">8</a>
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Turma: Estrutura de Dados -->
+    <section id="turma-ed" class="view view-turma">
+      <a href="#turmas" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para minhas turmas
+      </a>
+
+      <div class="turma-header">
+        <h2>Estrutura de Dados</h2>
+        <p class="subtitle">ADS 2025.2 • 29 alunos matriculados</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="grade">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Nome do aluno</th>
+              <th>P1</th>
+              <th>P2</th>
+              <th>Proj. F1</th>
+              <th>Proj. F2</th>
+              <th>Média</th>
+              <th>Status</th>
+              <th>Final</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20231D7301</td>
+              <td class="nome">Marcos Vinícius Amaral</td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="9,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td class="media">8,8</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D7302</td>
+              <td class="nome">Natália Prado Bernardes</td>
+              <td><input type="text" value="5,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td class="media">5,6</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D7303</td>
+              <td class="nome">Otávio Nunes Peixoto</td>
+              <td><input type="text" value="3,5" /></td>
+              <td><input type="text" value="4,0" /></td>
+              <td><input type="text" value="3,0" /></td>
+              <td><input type="text" value="3,5" /></td>
+              <td class="media">3,4</td>
+              <td><span class="badge reprovado">Reprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D7304</td>
+              <td class="nome">Paula Regina Coelho</td>
+              <td><input type="text" value="7,0" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td><input type="text" value="8,5" /></td>
+              <td><input type="text" value="8,0" /></td>
+              <td class="media">8,0</td>
+              <td><span class="badge aprovado">Aprovado</span></td>
+              <td>—</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+            <tr>
+              <td>20231D7305</td>
+              <td class="nome">Rafael Siqueira Bosco</td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="5,5" /></td>
+              <td><input type="text" value="6,0" /></td>
+              <td><input type="text" value="6,5" /></td>
+              <td class="media">6,1</td>
+              <td><span class="badge final">Fará final</span></td>
+              <td>7,5</td>
+              <td><a href="#" class="link-edit">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span>Mostrando 1–5 de 29 alunos</span>
+        <div class="pages">
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-left"></i></a>
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn">…</a>
+          <a href="#" class="page-btn">6</a>
+          <a href="#" class="page-btn"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
