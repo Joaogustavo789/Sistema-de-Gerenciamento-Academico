@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGA</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <div id="head">
+                <h1>SGA</h1>
+                <p>Sistema de Gestão Acadêmica (SGA) - Área docente</p>
+            </div>
+            <div id="rodape">
+                <p>Acompanhe turmas, lance notas e gere boletins em um só lugar.</p>
+            </div>
+        </div>
+        <div id="right">
+            <div id="form-container">
+                <div id="top">
+                    <h1>Bem-vindo de volta</h1>
+                    <p>Entre com suas credenciais institucionais</p>
+                </div>
+                <form onsubmit="loginUsuario(event)">
+                    <label for="email">E-mail institucional:</label>
+                    <input type="email" id="email" name="email" placeholder="professor@maisunifacisa.com.br" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="*********" required>
+                    <div id="container-alert">
+                        <div id="alert-container">
+                            <p></p>
+                            <div id="forgot-password">
+                                <p><a href="">Esqueci minha senha</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+                <div id="down">
+                    <p>Ainda não tem uma conta?</p>
+                    <p><a href="register.html">Cadastre-se como professor</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
