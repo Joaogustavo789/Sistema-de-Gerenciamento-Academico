@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 99.9%;
     height: 100%;
 
     #left {
@@ -46,7 +46,30 @@ body {
                 margin-top: 10px;
                 margin: 0;
             }
+
+            
         }
+
+        .circulo {
+            position: absolute;
+            border-radius: 50%;      /* transforma o quadrado em círculo */
+            background: #1b4080;     /* azul um pouco mais claro que o fundo */
+            }
+
+            .circulo-1 {
+            width: 125px;
+            height: 125px;
+            left: -40px;
+            top: 55%;
+            }
+
+            .circulo-2 {
+            width: 220px;
+            height: 220px;
+            right: 850px;
+            bottom: -10px;
+            top: 500px;
+            }
 
         #rodape {
             margin-top: auto;

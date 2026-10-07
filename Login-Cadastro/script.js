@@ -10,11 +10,11 @@ function pegarValores(id) {
 function salvarUsuario(event) {
 
     event.preventDefault();
-    const nome = pegarValores("name").value;
-    const email = pegarValores("email").value;
-    const disciplina = pegarValores("subject").value;
-    const senha = pegarValores("password").value;
-    const confirmSenha = pegarValores("confirm-password").value;
+    const nome = pegarValores("name");
+    const email = pegarValores("email");
+    const disciplina = pegarValores("subject");
+    const senha = pegarValores("password");
+    const confirmSenha = pegarValores("confirm-password");
 
     if (senha !== confirmSenha) {
         pegarValores("alert-container").querySelector("p").textContent = "As senhas não coincidem. Por favor, tente novamente.";
@@ -46,7 +46,7 @@ function salvarUsuario(event) {
 const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
 if (usuarios.some(u => u.email === email)) {
-    alert("Este email já está cadastrado. Por favor, use outro email.");
+    pegarValores("alert-container").querySelector("p").textContent = "Este email já está cadastrado. Por favor, use outro email.";
     return;
 }
 
