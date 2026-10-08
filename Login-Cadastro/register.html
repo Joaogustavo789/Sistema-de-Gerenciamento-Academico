@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGA</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <div id="left">
+            <div id="head">
+                <h1>SGA</h1>
+                <p>Sistema de Gestão Acadêmica (SGA) - Área docente</p>
+            </div>
+                <div class="circulo circulo-1"></div>
+                <div class="circulo circulo-2"></div>
+            <div id="rodape">
+                <p>Crie sua conta de professor para começar a lançar notas</p>
+            </div>
+        </div>
+        <div id="right">
+            <div id="form-container-register">
+                <div id="top">
+                    <h1>Criar conta de professor</h1>
+                    <p>Preencha os campos abaixo para criar sua conta</p>
+                </div>
+                <form id="register-form" onsubmit="salvarUsuario(event)">
+                    <label for="name">Nome completo:</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required placeholder="José da Silva">
+                    <label for="email">E-mail institucional:</label>
+                   <input type="email" id="email" name="email" autocomplete="email" required placeholder="exemplo@maisunifacisa.com.br">
+                    <label for="subject">Disciplina principal:</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Engenharia de Software">
+                    <label for="password">Senha:</label>
+                   <input type="password" id="password" name="password" autocomplete="new-password" required placeholder="*********">
+                    <label for="confirm-password">Confirmar senha:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required placeholder="*********">
+                    <div id="alert-container">
+                        <p></p>
+                    </div>
+                    <button type="submit" id="sub">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
