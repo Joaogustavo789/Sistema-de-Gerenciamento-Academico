@@ -10,11 +10,11 @@ function pegarValores(id) {
 function salvarUsuario(event) {
 
     event.preventDefault();
-    const nome = pegarValores("name");
-    const email = pegarValores("email");
-    const disciplina = pegarValores("subject");
-    const senha = pegarValores("password");
-    const confirmSenha = pegarValores("confirm-password");
+    const nome = pegarValores("name").value;
+    const email = pegarValores("email").value;
+    const disciplina = pegarValores("subject").value;
+    const senha = pegarValores("password").value;
+    const confirmSenha = pegarValores("confirm-password").value;
 
     if (senha !== confirmSenha) {
         pegarValores("alert-container").querySelector("p").textContent = "As senhas não coincidem. Por favor, tente novamente.";
@@ -80,7 +80,7 @@ function loginUsuario(event) {
     for (const usuario of usuarios) {
         if (usuario.email === email && usuario.senha === senha) {
             pegarValores("alert-container").querySelector("p").textContent = "Login bem-sucedido!";
-            window.location.href = "index.html";
+            window.location.href = "../menu.html";
             return;
         }
     }

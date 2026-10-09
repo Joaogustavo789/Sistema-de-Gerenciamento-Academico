@@ -13,8 +13,8 @@ body {
     justify-content: center;
     width: 99.9%;
     height: 100%;
-    overflow: hidden;
-    position: relative;
+
+
 
     #left {
         width: 40%;
@@ -26,28 +26,8 @@ body {
         align-items: left;
         justify-content: left;
         padding: 20px;
-        overflow: hidden;
         position: relative;
-
-        .circulo {
-            position: absolute;
-            border-radius: 50%;      /* transforma o quadrado em círculo */
-            background: #1b4080;     /* azul um pouco mais claro que o fundo */
-            }
-
-        .circulo-1 {
-            width: 125px;
-            height: 125px;
-            left: -40px;
-            top: 55%;
-            }
-
-            .circulo-2 {
-            width: 220px;
-            height: 220px;
-            right: -30px;
-            bottom: -10px;
-            }
+        z-index: 2;  
 
         #head {
             margin-bottom: 20px;
@@ -71,6 +51,27 @@ body {
             }
         }
 
+        .circulo {
+            position: absolute;
+            border-radius: 50%;      /* transforma o quadrado em círculo */
+            background: #1b4080;     /* azul um pouco mais claro que o fundo */
+            }
+
+        .circulo-1 {
+            width: 125px;
+            height: 125px;
+            left: -40px;
+            top: 55%;
+            }
+
+            .circulo-2 {
+            width: 220px;
+            height: 220px;
+            right: -30px;
+            bottom: -10px;
+            top: 500px;
+            }
+
         #rodape {
             margin-top: auto;
             display: flex;
@@ -87,6 +88,8 @@ body {
             }
         }
     }
+
+    
 
     #right {
         width: 60%;
