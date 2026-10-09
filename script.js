@@ -1,23 +1,34 @@
 // Sibebar iniciais do nome e nome da pessoa
 function loginSidebar() {
-    const usuarioLogin = JSON.parse(localStorage.getItem("usuarios"))
-    const loginStorage = localStorage.getItem("login")
+    const usuarioLogin = JSON.parse(localStorage.getItem("usuarios"));
+    const loginStorage = localStorage.getItem("login");
     
     const usuarioFind = usuarioLogin.find((element) => (
         element.email === loginStorage
-    ))
+    ));
 
     // Nome dinâmico
     const iniciaisNomeUser = usuarioFind.nome.trim().split(/\s+/).map((element) => element[0]).slice(0, 2).join("").toUpperCase();
-    document.getElementById("nomeUser").textContent = `Prof. ${usuarioFind.nome}`
+    document.getElementById("nomeUser").textContent = `Prof. ${usuarioFind.nome}`;
 
     // Iniciais do nome dinâmico
-    document.getElementById("iniciaisNome").textContent = iniciaisNomeUser
-    document.getElementById("logoBrand").textContent = iniciaisNomeUser
-    document.getElementById("avatarMenu").textContent = iniciaisNomeUser
+    document.getElementById("iniciaisNome").textContent = iniciaisNomeUser;
+    document.getElementById("logoBrand").textContent = iniciaisNomeUser;
+    document.getElementById("avatarMenu").textContent = iniciaisNomeUser;
 }
 
 loginSidebar();
+
+// Sair/Logout
+function logOut() {
+    localStorage.removeItem("login");
+    window.location.href = "Login-Cadastro/login.html";
+}
+
+document.getElementById("logout").addEventListener("click", (event) => {
+    event.preventDefault();
+    logOut();
+});
 
 function estaVazio(valor) {
     if (valor === undefined || valor === null) {
