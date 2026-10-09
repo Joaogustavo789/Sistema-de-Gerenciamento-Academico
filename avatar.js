@@ -1,5 +1,4 @@
 // SGA - avatar.js (compartilhado entre as telas)
-// Use: importe antes do script da tela e coloque data-avatar nos círculos de avatar.
 // localStorage: sga_usuarioLogado, sga_professores, sga_fotoPerfil_<email>
 
 const CHAVE_LOGADO = "sga_usuarioLogado";
