@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SGA | Meu perfil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+  <aside class="menu">
+    <div class="logo">
+      <span class="logo-icone">F</span>
+      <div><strong>SGA</strong><small>Docente</small></div>
+    </div>
+
+    <nav>
+      <a href="menu.html"><i class="fa-solid fa-graduation-cap"></i> Minhas turmas</a>
+      <a href="perfil.html" class="ativo"><i class="fa-solid fa-user"></i> Meu perfil</a>
+      <a href="#" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+    </nav>
+
+    <div class="menu-rodape">
+      <span class="avatar avatar-mini" data-avatar></span>
+      <div><strong id="menuNome">Prof.</strong><small>Professor(a)</small></div>
+    </div>
+  </aside>
+
+  <main class="conteudo">
+    <header class="cabecalho">
+      <div>
+        <h1>Meu perfil</h1>
+        <p>Atualize sua foto e seus dados cadastrais</p>
+      </div>
+      <a href="perfil.html" class="avatar avatar-topo" data-avatar title="Meu perfil"></a>
+    </header>
+
+    <section class="cartao">
+      <div class="foto-area">
+        <div class="avatar-wrap">
+          <span class="avatar avatar-grande" data-avatar></span>
+          <button type="button" class="btn-camera" id="btnCamera" aria-label="Alterar foto">
+            <i class="fa-solid fa-camera"></i>
+          </button>
+        </div>
+
+        <div class="foto-info">
+          <h2>Foto do perfil</h2>
+          <p>PNG ou JPG, até 2 MB. Recomendado 400x400 px.</p>
+          <div class="botoes">
+            <button type="button" class="btn btn-primario" id="btnAlterar">Alterar foto</button>
+            <button type="button" class="btn btn-contorno" id="btnRemover">Remover</button>
+          </div>
+          <input type="file" id="inputFoto" accept="image/png, image/jpeg" hidden>
+          <p class="mensagem" id="msgFoto" role="alert"></p>
+        </div>
+      </div>
+
+      <form id="formPerfil" novalidate>
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" autocomplete="name">
+
+        <label for="email">E-mail institucional</label>
+        <input type="email" id="email" autocomplete="email">
+
+        <label for="disciplina">Disciplina principal</label>
+        <input type="text" id="disciplina">
+
+        <p class="mensagem" id="msgForm" role="alert"></p>
+        <button type="submit" class="btn btn-primario">Salvar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="avatar.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>
