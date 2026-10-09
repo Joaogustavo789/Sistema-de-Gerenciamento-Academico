@@ -2,9 +2,33 @@
 // Depende do avatar.js (importar antes deste arquivo).
 
 const CHAVE_PROFESSORES = "usuarios"; // mesma chave usada no cadastro do Jose
+const CHAVE_LOGIN = "login";
 const PAGINA_LOGIN = "Login-Cadastro/login.html";
 const TAMANHO_MAX = 2 * 1024 * 1024; // 2 MB
 const TIPOS_ACEITOS = ["image/png", "image/jpeg"];
+
+function getUserPerfil() {
+  const userLogado = localStorage.getItem(CHAVE_LOGIN);
+  const professores = lerJSON( CHAVE_PROFESSORES, []);
+
+  return professores.find((professor) => (
+    professor.email === userLogado
+  ))
+}
+
+function carregarAvatarPerfil(usuario) {
+  const foto = obterFoto(usuario.email);
+
+  document.querySelectorAll("[data-avatar]").forEach((element) => {
+    if (foto) {
+      element.style.backgroundImage = `url(${foto})`;
+      element.textContent = "";
+    } else {
+      element.style.backgroundImage = "none";
+      element.textContent = obterIniciais(usuario.nome)
+    }
+  })
+}
 
 function mostrarMensagem(id, texto, tipo) {
   const el = document.getElementById(id);
@@ -17,7 +41,7 @@ function preencherTela(usuario) {
   document.getElementById("email").value = usuario.email || "";
   document.getElementById("disciplina").value = usuario.disciplina || "";
   document.getElementById("menuNome").textContent = "Prof. " + (usuario.nome || "").split(" ")[0];
-  carregarAvatar();
+  carregarAvatarPerfil(usuario);
 }
 
 function validarImagem(arquivo) {
@@ -43,10 +67,10 @@ function tratarSelecaoFoto(evento) {
 
   const leitor = new FileReader();
   leitor.onload = () => {
-    const usuario = obterUsuarioLogado();
+    const usuario = getUserPerfil();
     try {
       localStorage.setItem(PREFIXO_FOTO + usuario.email, leitor.result);
-      carregarAvatar();
+      carregarAvatarPerfil(usuario);
       mostrarMensagem("msgFoto", "Foto atualizada.", "sucesso");
     } catch {
       mostrarMensagem("msgFoto", "Não foi possível salvar a foto. Tente uma imagem menor.", "erro");
@@ -58,9 +82,9 @@ function tratarSelecaoFoto(evento) {
 }
 
 function removerFoto() {
-  const usuario = obterUsuarioLogado();
+  const usuario = getUserPerfil();
   localStorage.removeItem(PREFIXO_FOTO + usuario.email);
-  carregarAvatar();
+  carregarAvatarPerfil(usuario);
   mostrarMensagem("msgFoto", "Foto removida.", "sucesso");
 }
 
@@ -97,7 +121,7 @@ function salvarPerfil(evento) {
     return;
   }
 
-  const logado = obterUsuarioLogado();
+  const logado = getUserPerfil();
   const emailAntigo = logado.email;
   const professores = lerJSON(CHAVE_PROFESSORES, []);
 
@@ -107,11 +131,19 @@ function salvarPerfil(evento) {
     return;
   }
 
-  const atualizado = { ...logado, ...dados };
-  localStorage.setItem(CHAVE_LOGADO, JSON.stringify(atualizado));
+  const atualizado = professores.map((professor) => {
+    if (professor.email === emailAntigo) {
+      return {
+        ...professor,
+        ...dados,
+      }
+    }
 
-  const lista = professores.map((p) => (p.email === emailAntigo ? { ...p, ...dados } : p));
-  localStorage.setItem(CHAVE_PROFESSORES, JSON.stringify(lista));
+    return professor;
+  })
+
+  localStorage.setItem(CHAVE_PROFESSORES, JSON.stringify(atualizado));
+  localStorage.setItem(CHAVE_LOGIN, dados.email);
 
   // Se o e-mail mudou, a foto acompanha a nova chave
   if (emailAntigo !== dados.email) {
@@ -122,23 +154,24 @@ function salvarPerfil(evento) {
     }
   }
 
-  preencherTela(atualizado);
+  const usuarioAtualizado = {
+    ...logado,
+    ...dados,
+  }
+
+  preencherTela(usuarioAtualizado);
   mostrarMensagem("msgForm", "Dados salvos com sucesso.", "sucesso");
 }
 
 function sair(evento) {
   evento.preventDefault();
-  localStorage.removeItem(CHAVE_LOGADO);
+  localStorage.removeItem(CHAVE_LOGIN);
   window.location.href = PAGINA_LOGIN;
 }
 
 function iniciar() {
-  const usuario = obterUsuarioLogado();
-  if (!usuario) {
-    window.location.href = PAGINA_LOGIN;
-    return;
-  }
-
+  const usuario = getUserPerfil();
+  
   preencherTela(usuario);
 
   const inputFoto = document.getElementById("inputFoto");
