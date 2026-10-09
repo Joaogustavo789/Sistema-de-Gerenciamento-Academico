@@ -80,6 +80,7 @@ function loginUsuario(event) {
     for (const usuario of usuarios) {
         if (usuario.email === email && usuario.senha === senha) {
             pegarValores("alert-container").querySelector("p").textContent = "Login bem-sucedido!";
+            localStorage.setItem("login", email)
             window.location.href = "../menu.html";
             return;
         }
