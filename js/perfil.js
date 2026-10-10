@@ -3,7 +3,7 @@
 
 const CHAVE_PROFESSORES = "usuarios"; // mesma chave usada no cadastro do Jose
 const CHAVE_LOGIN = "login";
-const PAGINA_LOGIN = "Login-Cadastro/login.html";
+const PAGINA_LOGIN = "login.html";
 const TAMANHO_MAX = 2 * 1024 * 1024; // 2 MB
 const TIPOS_ACEITOS = ["image/png", "image/jpeg"];
 
