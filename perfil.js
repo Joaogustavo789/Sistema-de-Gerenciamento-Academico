@@ -40,7 +40,7 @@ function preencherTela(usuario) {
   document.getElementById("nome").value = usuario.nome || "";
   document.getElementById("email").value = usuario.email || "";
   document.getElementById("disciplina").value = usuario.disciplina || "";
-  document.getElementById("menuNome").textContent = "Prof. " + (usuario.nome || "").split(" ")[0];
+  document.getElementById("menuNome").textContent = "Prof. " + (usuario.nome || "");
   carregarAvatarPerfil(usuario);
 }
 

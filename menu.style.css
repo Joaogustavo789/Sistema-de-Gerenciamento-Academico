@@ -226,7 +226,7 @@ body {
 .view-turmas { display: block; }
 
 /* Se QUALQUER .view-turma for o alvo, escondemos a grade... */
-.view-turma:target ~ #turmas { display: none; }
+body:has(.view-turma:target) .view-turmas { display: none; }
 
 /* ...e mostramos só a turma alvo. */
 .view-turma:target { display: block; }
