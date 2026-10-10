@@ -81,7 +81,7 @@ function loginUsuario(event) {
         if (usuario.email === email && usuario.senha === senha) {
             pegarValores("alert-container").querySelector("p").textContent = "Login bem-sucedido!";
             localStorage.setItem("login", email)
-            window.location.href = "../menu.html";
+            window.location.href = "../pages/menu.html";
             return;
         }
     }

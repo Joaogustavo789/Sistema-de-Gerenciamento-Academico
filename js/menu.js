@@ -22,7 +22,7 @@ loginSidebar();
 // Sair/Logout
 function logOut() {
     localStorage.removeItem("login");
-    window.location.href = "Login-Cadastro/login.html";
+    window.location.href = "login.html";
 }
 
 document.getElementById("logout").addEventListener("click", (event) => {
